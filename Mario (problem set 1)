@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include<cs50.h>
+
+int main(void)
+{
+    int rows = 0;
+
+
+    do
+    {
+        rows = get_int("enter number between 1 and 8: \n");
+    }
+    while (rows<=0 || rows>8);
+
+    // loop for rows and colums of pyramid
+    for (int i = 1 ; i <= rows ; i++)
+    {
+        /* Chooses a column: */
+        for (int j = 1 ; j <= rows ; j++)
+        {
+            // formula for #
+            if (j >= rows + 1 - i)
+            {
+                printf("#");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
