@@ -37,7 +37,7 @@ int main(void)
         while(cents >= 0.01)
         {
             penny++;
-            cents = cents - 0.05;
+            cents = cents - 0.01;
         }
 
        
