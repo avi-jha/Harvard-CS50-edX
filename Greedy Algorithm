@@ -1,0 +1,46 @@
+//
+// Created by Avi on 02-07-2020.
+//
+#include<stdio.h>
+
+int main(void)
+{
+    // variable declaration
+    int quarter = 0, dime = 0, penny = 0, nickle; float cent1;
+    float money, cents;
+
+    do{
+        printf("enter amount owed: \n");
+        scanf("%f", &cents);
+    } while(money < 0);
+  
+  
+    //loop part
+        while(cents >= 0.25)
+        {
+            quarter++;
+            cents = cents - 0.25;
+        }
+
+        while(cents >= 0.10)
+        {
+            dime++;
+            cents = cents - 0.10;
+        }
+
+        while(cents >= 0.05)
+        {
+            nickle++;
+            cents = cents - 0.05;
+        }
+        
+        while(cents >= 0.05)
+        {
+            penny++;
+            cents = cents - 0.05;
+        }
+
+       
+        printf("%i total coins \n", quarter+dime+penny+nickle);
+        printf("%i %i %i %i", quarter, dime, penny, nickle);
+}
