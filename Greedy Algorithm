@@ -6,7 +6,7 @@
 int main(void)
 {
     // variable declaration
-    int quarter = 0, dime = 0, penny = 0, nickle; float cent1;
+    int quarter = 0, dime = 0, penny = 0, nickle = 0; float cent1;
     float money, cents;
 
     do{
@@ -34,7 +34,7 @@ int main(void)
             cents = cents - 0.05;
         }
         
-        while(cents >= 0.05)
+        while(cents >= 0.01)
         {
             penny++;
             cents = cents - 0.05;
@@ -42,5 +42,5 @@ int main(void)
 
        
         printf("%i total coins \n", quarter+dime+penny+nickle);
-        printf("%i %i %i %i", quarter, dime, penny, nickle);
+        printf("%i %i %i %i", quarter, dime, nickle, penny);
 }
