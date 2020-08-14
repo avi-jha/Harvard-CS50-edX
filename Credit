@@ -1,0 +1,97 @@
+// created on 14 August, 2020
+//
+// created by avi-jha
+
+#include <stdio.h>
+#include<cs50.h>
+#include<math.h>
+
+int main(void) 
+{
+    //variables declarations
+    int sum_last = 0, sum_last2 = 0, last, last2, count = 0, fir_2_dig, a, b, c, temp, temp1;
+    long card, card2;
+
+    // taking input
+    card = get_long("Enter card number : ");
+
+    // finding individual digits and adding them
+    while (card > 0)
+    {
+        temp = card % 10;
+        card = card / 10;
+        count++;
+        if (count % 2 !=0)
+        {
+            last = temp;
+            sum_last = sum_last + last;
+        }
+        else if (count % 2 == 0)
+        {
+            last2 = temp;
+            if (last2 > 4)
+            {
+                a = (last2 * 2) % 10;
+                b = (last2 * 2) / 10;
+                c = a + b;
+                sum_last2 = sum_last2 + c;
+            }
+            else
+            {
+                sum_last2 = sum_last2 + last2 * 2;
+            }
+        }
+    }
+    // this saves the first digit in variable last
+    if (count % 2 == 0)
+    {
+        temp1 = last2;
+        last2 = last;
+        last = temp1;
+    }
+    
+    if ((sum_last + sum_last2) % 10 != 0)
+    {
+        printf("INVALID\n");
+    }
+    else if (count < 13 || count > 16)
+    {
+        printf("INVALID\n");
+    }
+    else
+    {
+        if (count == 15)
+        {
+            if (last * 10 + last2 == 34 || last * 10 + last2 == 37)
+            {
+                printf("AMEX\n");
+            }
+            else
+            {
+                printf("INVALID\n");
+            }
+        }
+        else if (last == 4)
+        {
+            if (count == 13 || count == 14 || count == 15 || count == 16)
+            {
+                printf("VISA\n");
+            }
+        }
+        else if (last * 10 + last2 == 51 || last * 10 + last2 == 52 || last * 10 + last2 == 53 || last * 10 + last2 == 54 || last * 10 + last2 == 55)
+        {
+            if (count == 16)
+            {
+                printf("MASTERCARD\n");
+            }
+            else
+            {
+                printf("INVALID\n");
+            }
+        }
+        else 
+        {
+            printf("INVALID\n");
+        }
+    }
+}
