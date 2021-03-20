@@ -1,7 +1,7 @@
 // created by Avi-Jha
 // created on 24 - 08 - 2020
 
-#include <cs50.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -13,7 +13,10 @@ int main(void)
     double len, sentences = 0, index, l, s, count_l = 0, count_w = 1, count_s = 0, count_sp_char = 0;
 
     //taking input
-    string text = get_string("enter text: \n");
+    char *text;
+    text = malloc(sizeof(char));
+    printf("Enter some text: ");
+    gets(text);
     len = strlen(text);
 
     //loop to count letters
@@ -44,7 +47,7 @@ int main(void)
     //CLI formula
     index = (0.0588 * l) - (0.296 * s) - 15.8;
     index = round(index);
-    
+
     // using if to write grades
     for (int i = 1; i <= 16; i++)
     {
@@ -64,8 +67,8 @@ int main(void)
             {
                 printf("Grade 16+\n");
                 break;
-            }   
+            }
         }
     }
+    free (text);
 }
-
